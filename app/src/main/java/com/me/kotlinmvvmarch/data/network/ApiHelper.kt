@@ -1,12 +1,18 @@
 package com.me.kotlinmvvmarch.data.network
 
-import com.me.kotlinmvvmarch.data.model.SourceResponse
+import com.me.kotlinmvvmarch.data.model.headLine.HeadLineResponse
+import com.me.kotlinmvvmarch.data.model.news.SourceResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ApiHelper {
 
-    @GET("sources?apiKey=1af829535010448596f98890f16c7f9d")
-    fun getSources(): Observable<SourceResponse>
+    @GET(NetworkUrl.NEWS)
+    fun getSources(@Query("apiKey") apiKey: String): Observable<SourceResponse>
+
+    @GET(NetworkUrl.HEADLINE)
+    fun getHeadLines(@Query("sources") sources: String, @Query("apiKey") apiKey: String)
+            : Observable<HeadLineResponse>
 
 }

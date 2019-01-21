@@ -74,8 +74,8 @@ class AppModule {
         return Retrofit.Builder()
                 .baseUrl(AppConstants.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(builder.addInterceptor(interceptor).build())
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.addInterceptor(interceptor).build())
                 .build()
     }
 

@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/cairo_regular"
-        android:text="error"
+        android:text="success"
         android:textColor="@color/color_white"
         android:textSize="15sp" />
 

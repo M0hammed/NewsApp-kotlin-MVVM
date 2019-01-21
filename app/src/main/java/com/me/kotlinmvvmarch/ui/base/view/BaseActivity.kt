@@ -6,9 +6,11 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.me.kotlinmvvmarch.R
+import com.me.kotlinmvvmarch.utils.DataBindingUtils
 import dagger.android.AndroidInjection
 
 /**
@@ -33,6 +35,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
         handleDataBinding()
 
         initializeComponents()
+
     }
 
 
@@ -72,11 +75,20 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
     abstract fun getBindingVariable(): Int
 
     // for getting current view model to binding
-    abstract fun getViewMode(): V
+    abstract fun getViewModel(): V
+
+    fun getViewDataBinding(): T {
+        return mViewDataBinding
+    }
 
     private fun handleDataBinding() {
+        DataBindingUtil.setDefaultComponent(object : DataBindingComponent {
+            override fun getDataBindingUtils(): DataBindingUtils {
+                return DataBindingUtils()
+            }
+        })
         mViewDataBinding = DataBindingUtil.setContentView(getContext(), getLayoutResource())
-        mViewModel = mViewModel ?: getViewMode()
+        mViewModel = mViewModel ?: getViewModel()
         mViewDataBinding.setVariable(getBindingVariable(), mViewModel)
         mViewDataBinding.executePendingBindings()
 

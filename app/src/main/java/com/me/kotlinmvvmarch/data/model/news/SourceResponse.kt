@@ -1,4 +1,4 @@
-package com.me.kotlinmvvmarch.data.model
+package com.me.kotlinmvvmarch.data.model.news
 
 import com.google.gson.annotations.SerializedName
 

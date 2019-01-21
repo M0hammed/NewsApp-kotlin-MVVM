@@ -29,10 +29,10 @@ internal fun Toast.showErrorMessage(context: Context, message: String, toastDura
 
 internal fun Toast.showSuccessMessage(context: Context, message: String, toastDuration: AppConstants.ToastDuration = AppConstants.ToastDuration.DURATION_SHORT) {
     val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-    val errorView = inflater.inflate(R.layout.toast_success_layout, null)
-    val tvMessage = errorView.findViewById<TextView>(R.id.tv_toast_message)
+    val successView = LayoutInflater.from(context).inflate(R.layout.toast_success_layout, null)
+    val tvMessage = successView.findViewById<TextView>(R.id.tv_toast_message)
     tvMessage.text = message
-    this.view = errorView
+    this.view = successView
     this.duration = toastDuration.duration
     this.show()
 }
