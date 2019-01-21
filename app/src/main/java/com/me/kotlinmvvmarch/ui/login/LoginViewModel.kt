@@ -24,6 +24,4 @@ class LoginViewModel(loginInteractor: LoginInteractor) : BaseViewModel() {
             loginButtonClick.value = AppConstants.LoginValidationStatus.success.loginStatus
         }
     }
-
-
 }
