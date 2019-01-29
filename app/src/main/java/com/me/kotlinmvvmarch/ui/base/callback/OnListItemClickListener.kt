@@ -7,4 +7,5 @@ interface OnListItemClickListener {
     fun onItemClicked(view: View, name: String)
     fun onItemClicked(view: View)
     fun onItemClicked(view: View, itemViewModel: Any)
+    fun onItemClicked(itemViewModel: Any)
 }

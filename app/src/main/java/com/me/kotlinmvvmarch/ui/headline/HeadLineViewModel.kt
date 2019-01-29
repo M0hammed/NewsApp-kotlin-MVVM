@@ -11,6 +11,7 @@ import com.me.kotlinmvvmarch.ui.base.view.BaseViewModel
 
 class HeadLineViewModel(var interactor: HeadLineInteractor) : BaseViewModel(), OnListItemClickListener {
 
+
     private var headLineVieModelList: ArrayList<HeadLineItemViewModel> = ArrayList()
     var headLienItemLiveData: MutableLiveData<ArrayList<HeadLineItemViewModel>> = MutableLiveData()
     var headLineItemViewModelData: MutableLiveData<HeadLineItemViewModel> = MutableLiveData()
@@ -58,4 +59,6 @@ class HeadLineViewModel(var interactor: HeadLineInteractor) : BaseViewModel(), O
         headLineItemViewModelData.value = headLineItemViewModel
     }
 
+    override fun onItemClicked(itemViewModel: Any) {
+    }
 }

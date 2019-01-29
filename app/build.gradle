@@ -32,9 +32,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.android.support:appcompat-v7:28.0.1'
 
@@ -74,4 +71,19 @@ dependencies {
     // database
     implementation "androidx.room:room-rxjava2:2.1.0-alpha02"
     annotationProcessor "androidx.room:room-compiler:2.1.0-alpha02"
+
+    // Unit test
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+    testImplementation "org.powermock:powermock-module-junit4:$rootProject.ext.powerMockito"
+    testImplementation "org.powermock:powermock-api-mockito:$rootProject.ext.powerMockito"
+
+    // test support library runner and rules
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+
+
+    // espresso
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
 }
