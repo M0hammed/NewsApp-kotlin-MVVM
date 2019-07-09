@@ -4,7 +4,7 @@ import com.me.kotlinmvvmarch.data.network.ApiHelper
 import com.me.kotlinmvvmarch.data.preferences.PreferencesHelper
 import com.me.kotlinmvvmarch.utils.AppConstants
 
-open class BaseInteractor() {
+open class BaseInteractor() : BaseInteractorInterface {
 
     protected lateinit var preferencesHelper: PreferencesHelper
     protected lateinit var apiHelper: ApiHelper

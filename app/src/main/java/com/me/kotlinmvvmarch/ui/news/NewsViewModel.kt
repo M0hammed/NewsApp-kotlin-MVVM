@@ -8,8 +8,9 @@ import com.me.kotlinmvvmarch.data.model.news.NewsItemViewModel
 import com.me.kotlinmvvmarch.data.model.news.SourceResponse
 import com.me.kotlinmvvmarch.ui.base.callback.OnListItemClickListener
 import com.me.kotlinmvvmarch.ui.base.view.BaseViewModel
+import java.util.*
 
-class NewsViewModel(private val newsInteractor: NewsInteractor) :
+class NewsViewModel(private val newsInteractor: NewsInteractorInterface) :
         BaseViewModel(),
         OnListItemClickListener,
         NewsInteractor.NewsInteractorCallBack {
@@ -20,15 +21,17 @@ class NewsViewModel(private val newsInteractor: NewsInteractor) :
     val sourceItemData: MutableLiveData<NewsItemViewModel> = MutableLiveData()
 
     // get source news from server
-    fun getSourceNews() {
 
-        /* old way
-       getCompositeDisposable().add(newsInteractor.getSources().subscribe({ result ->
+    fun getSourceNewsWithoutCallBack() {
+        // old way
+        getCompositeDisposable().add(newsInteractor.getSources().subscribe({ result ->
             sourceItemViewModelLiveData.value = getViewModelList(result.sources)
         }, { error ->
             Log.e("xxx", error.message)
-        }))*/
+        }))
+    }
 
+    fun getSourceNews() {
         newsInteractor.getSources(this)?.let { getCompositeDisposable().add(it) }
     }
 
@@ -76,5 +79,9 @@ class NewsViewModel(private val newsInteractor: NewsInteractor) :
 
     override fun onItemClicked(itemViewModel: Any) {
         sourceItemData.value = itemViewModel as NewsItemViewModel
+    }
+
+    fun testFun(): String {
+        return "hello"
     }
 }

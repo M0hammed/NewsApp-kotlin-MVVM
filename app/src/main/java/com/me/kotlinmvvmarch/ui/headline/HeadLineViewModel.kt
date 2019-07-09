@@ -23,7 +23,7 @@ class HeadLineViewModel(var interactor: HeadLineInteractor) : BaseViewModel(), O
                     getHeadLineItemViewModel(response.articles)
                     headLienItemLiveData.value = getHeadLineItemViewModel(response.articles)
                 }
-                        , { error -> Log.e("xxx", error.localizedMessage) }))
+                        , { error -> Log.e("xxx", error.message) }))
     }
 
     // add data to itemViewModel

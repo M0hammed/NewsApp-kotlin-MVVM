@@ -34,6 +34,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
             }
         })
+
     }
 
     override fun isFullScreen(): Boolean = true

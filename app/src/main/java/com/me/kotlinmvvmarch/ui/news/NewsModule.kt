@@ -13,7 +13,7 @@ class NewsModule() {
 
     @Provides
     internal fun provideNewsInterActor(context: Context, preferenceHelper: AppPreferenceHelper, apiHelper: ApiHelper)
-            : NewsInteractor {
+            : NewsInteractorInterface {
         return NewsInteractor(context, preferenceHelper, apiHelper)
     }
 

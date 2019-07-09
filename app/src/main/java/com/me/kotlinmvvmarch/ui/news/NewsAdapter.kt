@@ -14,7 +14,8 @@ class NewsAdapter(var newsViewModel: NewsViewModel, var sourceList: ArrayList<Ne
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
 
-        val rowNewsBinding = DataBindingUtil.inflate<RowNewsBinding>(LayoutInflater.from(parent.context), R.layout.row_news, parent, false, DataBindingUtil.getDefaultComponent())
+        val rowNewsBinding = DataBindingUtil.inflate<RowNewsBinding>(LayoutInflater.from(parent.context),
+                R.layout.row_news, parent, false, DataBindingUtil.getDefaultComponent())
 
         return NewsViewHolder(rowNewsBinding)
     }

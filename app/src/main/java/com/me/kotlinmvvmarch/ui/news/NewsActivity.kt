@@ -23,8 +23,7 @@ class NewsActivity : BaseActivity<ActivityNewsBinding, NewsViewModel>() {
     private var newsItemViewModel: ArrayList<NewsItemViewModel>? = ArrayList()
 
     override fun initializeComponents() {
-        // get News sources
-
+        
         // setup recyclerView
         val binding = getViewDataBinding()
         binding.rvNews.layoutManager = LinearLayoutManager(NewsActivity@ this)

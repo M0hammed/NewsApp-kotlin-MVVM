@@ -13,13 +13,14 @@ import javax.inject.Inject
 
 class NewsInteractor @Inject constructor(val context: Context,
                                          preferenceHelper: AppPreferenceHelper,
-                                         apiHelper: ApiHelper) : BaseInteractor(preferenceHelper, apiHelper) {
+                                         apiHelper: ApiHelper) : NewsInteractorInterface, BaseInteractor(preferenceHelper, apiHelper) {
 
-    fun getSources(): Observable<SourceResponse> = apiHelper.getSources("1af829535010448596f98890f16c7f9d")
+    override fun getSources(): Observable<SourceResponse> = apiHelper.getSources("1af829535010448596f98890f16c7f9d")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
-    fun getSources(callBack: NewsInteractorCallBack): Disposable? = apiHelper.getSources("1af829535010448596f98890f16c7f9d")
+
+    override fun getSources(callBack: NewsInteractorCallBack): Disposable? = apiHelper.getSources("1af829535010448596f98890f16c7f9d")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result -> callBack.handleResponse(result) },
